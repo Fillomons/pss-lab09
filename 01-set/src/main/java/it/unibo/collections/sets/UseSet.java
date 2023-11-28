@@ -1,6 +1,7 @@
 package it.unibo.collections.sets;
-
+import java.util.Iterator;
 import java.util.Collection;
+import java.util.TreeSet;
 
 /**
  * Example class using {@link java.util.Set}.
@@ -24,22 +25,48 @@ public final class UseSet {
          *
          * 1) Builds a TreeSet containing Strings
          */
+        final Collection<String> treeSet = new TreeSet<>();
         /*
          * 2) Populates such Collection with all the Strings representing numbers ranging from "1" to
          * "20" (both included)
          */
+        for(Integer i = 1; i<= ELEMS; i++) {//TreeSet.add(Integer)
+            treeSet.add(Integer.toString(i));
+        }
         /*
          * 3) Prints its content
          */
+        Iterator<String> iterator = treeSet.iterator(); //ho creato l'iteratore
+        while (iterator.hasNext()){
+            String current = iterator.next(); //current è una variabile d'appoggio
+            int i = Integer.parseInt(current);
+        if (i%3 == 0) {
+            iterator.remove();
+        }
+        }
+        for (String element : treeSet){
+            System.out.println(element);
+        }
+
+        /*for (String element : treeSet){   //altro metododi fare quello che ho appena fatto while
+            System.out.println(element);
+        }*/
+
         /*
          * 4) Removes all those strings whose represented number is divisible by three.
          * Note: the method removeIf(Predicate) is not allowed.
          */
+    //ho fatto remove nel 3
         /*
          * 5) Prints the content of the Set using a for-each construct
          */
         /*
          * 6) Verifies whether all the numbers left in the set are even
          */
+
+    
+    
+    
+
     }
 }
